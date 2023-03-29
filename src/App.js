@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import Layout from "./Components/Layout/Layout";
+import Header from "./Components/Header/Header";
+import ToolsBar from "./Components/ToolsBar/ToolsBar";
+import MenuContextProvider from "./Helpers/Context";
+import { MenuModal } from "./Components/Utilities/modal";
+import MenuContent from "./Components/MenuItems/MenuContent";
+import { AlertError } from "./Components/Utilities/alertError";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Layout>
+        <MenuContextProvider>
+          <ToolsBar />
+          <MenuContent />
+          <MenuModal />
+          <AlertError />
+        </MenuContextProvider>
+      </Layout>
+    </>
   );
-}
+};
 
 export default App;
